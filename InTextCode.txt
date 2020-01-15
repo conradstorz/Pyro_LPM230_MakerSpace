@@ -1,0 +1,39 @@
+ping <IP address from above>
+
+
+@Pyro4.expose
+def ringBell():
+  bellPin = 17
+  GPIO.out ( bellPin , True )
+  time.wait ( 1 )
+  GPIO.out ( bellPin , False )
+  Return "Bell rang for 1 second"
+  
+  
+  message = remoteBell.ringBell()
+  
+  
+  sudo pip3 install Pyro4
+  
+  
+  python3
+>>> import Pyro4
+
+
+python -m Pyro4.naming
+
+
+python receive.py
+
+
+python transmit.py
+
+
+@property
+def timeValue ( self ):
+  return self.value
+  
+  
+  @attr.setter
+def editableTime ( self , newValue ):
+  self.value = newValue
