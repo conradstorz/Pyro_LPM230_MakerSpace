@@ -4,6 +4,19 @@ import Pyro4
 import pygame
 import time
 
+
+# Create a daemon -- Pyro's worker class to serve an object
+daemon = Pyro4.Daemon()
+# Get the URI of the daemon
+uri = daemon.register(colorSquare)
+# Find the nameserver on the network
+ns = Pyro4.locateNS()
+# Let the nameserver know what we answer to and where to find us
+ns.register("square", uri)
+# Listen for and handle requests
+daemon.requestLoop()
+
+
 # Tell Pyro to use a single instance of the class regardless of where the request originates
 @Pyro4.behavior(instance_mode="single")
 class colorSquare:
@@ -50,13 +63,3 @@ class colorSquare:
         return time.time() - self.start
 
 
-# Create a daemon -- Pyro's worker class to serve an object
-daemon = Pyro4.Daemon()
-# Get the URI of the daemon
-uri = daemon.register(colorSquare)
-# Find the nameserver on the network
-ns = Pyro4.locateNS()
-# Let the nameserver know what we answer to and where to find us
-ns.register("square", uri)
-# Listen for and handle requests
-daemon.requestLoop()
