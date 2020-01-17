@@ -9,7 +9,7 @@ remoteSquare = Pyro4.Proxy(uri)
 
 # Repeat as necessary for multiple remote objects
 
-while 1:
+while True:
     request = input("What color? ")
     # Treat the remote object above as if it is local
     # The return value (just printed here) is whatever the remote function wants to send back (if anything)
