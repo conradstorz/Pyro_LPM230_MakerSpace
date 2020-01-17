@@ -5,6 +5,10 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 
+# TODO move this module active code from bottom of file to here, 
+# after testing that it is working where it is now. 
+# This file has not yet been tested 1/17/2020
+
 
 @Pyro4.behavior(instance_mode="single")
 class scoreboard:
@@ -139,6 +143,6 @@ class scoreboard:
         pygame.display.flip()
         print("update")
 
-
+#TODO move this to top of file
 Pyro4.config.HOST = "172.16.71.227"
 Pyro4.Daemon.serveSimple({scoreboard: "scoreboard2"}, ns=True)
