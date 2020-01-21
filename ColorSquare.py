@@ -23,7 +23,7 @@ while not NameServerFound:
     try:
         ns = Pyro4.locateNS()
         NameServerFound = True
-    except TypeError:
+    except Pyro4.errors.NamingError:  # appears server is not running
         print("Nameserver not found.")
         NameServerFound = False
         sleep(5)
