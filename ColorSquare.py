@@ -2,6 +2,7 @@
 
 import os
 import sys
+from time import sleep
 import Pyro4
 
 from ColorSquare_object import colorSquare
@@ -16,11 +17,14 @@ daemon = Pyro4.Daemon()
 # Get the URI of the daemon
 uri = daemon.register(colorSquare)
 # Find the nameserver on the network
-try:
-    ns = Pyro4.locateNS()
-except:
-    print('Nameserver not found.')
-    sys.exit()
+NameServerFound = False
+while not NameServerFound:
+    try:
+        ns = Pyro4.locateNS()
+    except:
+        print('Nameserver not found.')
+        sleep(5)
+    NameServerFound = True
 # Let the nameserver know what we answer to and where to find us
 ns.register("square", uri)
 # Listen for and handle requests
