@@ -7,6 +7,9 @@
 # local DB files
 *.json_db
 
+# vscode.settings.json
+settings.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
