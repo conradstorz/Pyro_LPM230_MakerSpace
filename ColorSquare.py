@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Nothing different here,
 # just import the Pyro4 library along with whatever else you need
 
