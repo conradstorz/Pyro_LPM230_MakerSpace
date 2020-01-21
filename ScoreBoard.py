@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 
-# TODO move this module active code from bottom of file to here, 
-# after testing that it is working where it is now. 
+# TODO move this module active code from bottom of file to here,
+# after testing that it is working where it is now.
 # This file has not yet been tested 1/17/2020
 
 
@@ -73,8 +73,12 @@ class scoreboard:
         print("Draw Score")
 
     def drawScoreLocal(self):
-        score = self.scoreFont.render(str(self.currentScore), True, (255, 255, 255))
-        shadow = self.scoreFont.render(str(self.currentScore), True, (0, 0, 0))
+        score = self.scoreFont.render(
+            str(self.currentScore), True, (255, 255, 255)
+        )
+        shadow = self.scoreFont.render(
+            str(self.currentScore), True, (0, 0, 0)
+        )
 
         X = self.screen.get_width() / 2 - score.get_width() / 2
 
@@ -114,7 +118,7 @@ class scoreboard:
 
     def updateTimer(self):
         nextUpdate = time.time() + 0.01
-        while self.running == True:
+        while self.running:
             if time.time() < nextUpdate:
                 continue
             nextUpdate = time.time() + 0.01
@@ -123,7 +127,9 @@ class scoreboard:
             score = self.scoreFont.render(
                 "{0:03.3f}".format(elapsed), True, (255, 255, 255)
             )
-            shadow = self.scoreFont.render("{0:03.3f}".format(elapsed), True, (0, 0, 0))
+            shadow = self.scoreFont.render(
+                "{0:03.3f}".format(elapsed), True, (0, 0, 0)
+            )
 
             X = self.screen.get_width() / 2 - score.get_width() / 2
 
@@ -143,6 +149,9 @@ class scoreboard:
         pygame.display.flip()
         print("update")
 
-#TODO move this to top of file
+
+# TODO move this to top of file
+
 Pyro4.config.HOST = "172.16.71.227"
+
 Pyro4.Daemon.serveSimple({scoreboard: "scoreboard2"}, ns=True)
