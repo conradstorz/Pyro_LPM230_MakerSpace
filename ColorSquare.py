@@ -2,8 +2,7 @@
 
 import os
 import Pyro4
-import pygame
-import time
+
 from ColorSquare_object import colorSquare
 
 print( 'DISPLAY' in os.environ )

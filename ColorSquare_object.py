@@ -1,3 +1,9 @@
+
+
+import Pyro4
+import pygame
+import time
+
 # Tell Pyro to use a single instance of the class regardless of where the request originates
 @Pyro4.behavior(instance_mode="single")
 class colorSquare:
