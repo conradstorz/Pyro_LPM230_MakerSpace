@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": true,
-    "python.pythonPath": "c:\\Users\\Conrad\\Pyro_LPM230_MakerSpace\\env\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\Conrad\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
 }
