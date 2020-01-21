@@ -24,7 +24,8 @@ while not NameServerFound:
     except:
         print('Nameserver not found.')
         sleep(5)
-    NameServerFound = True
+    finally:
+        NameServerFound = True
 # Let the nameserver know what we answer to and where to find us
 ns.register("square", uri)
 # Listen for and handle requests
