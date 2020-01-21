@@ -152,6 +152,9 @@ class scoreboard:
 
 # TODO move this to top of file
 
-Pyro4.config.HOST = "172.16.71.227"
+Pyro4.config.HOST = "10.10.10.114"
 
-Pyro4.Daemon.serveSimple({scoreboard: "scoreboard2"}, ns=True)
+Pyro4.Daemon.serveSimple(
+    {scoreboard: "scoreboard2"}, 
+    ns=True
+)
