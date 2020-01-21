@@ -165,5 +165,5 @@ while not NameServerFound:
     except Pyro4.errors.NamingError:  # appears server is not running
         print("Nameserver not yet found.")
         NameServerFound = False
-        sleep(5)
+        time.sleep(5)
 
