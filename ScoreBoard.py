@@ -154,7 +154,16 @@ class scoreboard:
 
 Pyro4.config.HOST = "10.10.10.114"
 
-Pyro4.Daemon.serveSimple(
-    {scoreboard: "scoreboard2"}, 
-    ns=True
-)
+NameServerFound = False
+while not NameServerFound:
+    try:
+        Pyro4.Daemon.serveSimple(
+            {scoreboard: "scoreboard2"}, 
+            ns=True
+        )
+        NameServerFound = True
+    except Pyro4.errors.NamingError:  # appears server is not running
+        print("Nameserver not yet found.")
+        NameServerFound = False
+        sleep(5)
+
