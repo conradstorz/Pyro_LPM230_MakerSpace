@@ -92,7 +92,7 @@ class scoreboard:
             if time.time() < nextUpdate: continue
             nextUpdate = time.time() + .01
 
-            print self.scoreGoal , self.currentScore
+            print (self.scoreGoal , self.currentScore)
 
             if self.scoreGoal < self.currentScore:
                 self.currentScore -= 5
