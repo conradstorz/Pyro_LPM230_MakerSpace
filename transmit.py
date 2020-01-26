@@ -8,7 +8,7 @@ uri = ns.lookup ( "square" )
 remoteSquare = Pyro4.Proxy ( uri )
 
 # Repeat as necessary for multiple remote objects
-
+raw_input = input
 while 1:
    request = raw_input ( "What color? " )
    # Treat the remote object above as if it is local
