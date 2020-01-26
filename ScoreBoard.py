@@ -1,9 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" RaspberryPi 'RPi' code to put a fullscreen display on a remotely
+controlled screen.
+"""
+
+#TODO detect if running directly on the console of RPi, exit with warning otherwise.
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+
 import Pyro4
 import pygame
 import time
-import RPi.GPIO as GPIO
-
-GPIO.setmode(GPIO.BCM)
 
 # TODO move this module active code from bottom of file to here,
 # after testing that it is working where it is now.
