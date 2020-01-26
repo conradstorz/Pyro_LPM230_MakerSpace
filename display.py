@@ -2,6 +2,8 @@ import Pyro4
 import pygame
 import time
 import RPi.GPIO as GPIO
+from Get_IP_address2 import get_ip
+SCOREBOARDNAME = 'scoreboard2'
 
 GPIO.setmode ( GPIO.BCM )
 
@@ -135,8 +137,8 @@ class scoreboard:
         print "update"
 
 
-Pyro4.config.HOST = "172.16.71.227"
+Pyro4.config.HOST = get_ip()
 Pyro4.Daemon.serveSimple ( {
-    scoreboard: "scoreboard2"
+    scoreboard: SCOREBOARDNAME
     } , ns=True
     )
