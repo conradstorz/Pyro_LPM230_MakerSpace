@@ -4,10 +4,10 @@ import Pyro4
 class web:
     def __init__ ( self ):
         self.screens = list()
-        self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard1" ) )
+        #self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard1" ) )
         self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard2" ) )
-        self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard3" ) )
-        self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard4" ) )
+        #self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard3" ) )
+        #self.screens.append ( Pyro4.Proxy ( "PYRONAME:scoreboard4" ) )
 
         for screen in self.screens:
             screen.drawTitle()
