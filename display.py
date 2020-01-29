@@ -1,11 +1,21 @@
+import sys
+
+try:
+    import RPi.GPIO as GPIO
+    GPIO.setmode ( GPIO.BCM )
+except ImportError as e:    
+    print('This code runs directly on a Raspberry Pi only.')
+    sys.exit(1)
+
 import Pyro4
 import pygame
 import time
-import RPi.GPIO as GPIO
 from Get_IP_address2 import get_ip
+THIS_SERVER_IP = get_ip()
 SCOREBOARDNAME = 'scoreboard2'
+print(f'My name is:{SCOREBOARDNAME} and my IP is:{THIS_SERVER_IP}')
 
-GPIO.setmode ( GPIO.BCM )
+
 
 @Pyro4.behavior(instance_mode="single")
 class scoreboard:
@@ -137,7 +147,7 @@ class scoreboard:
         print ("update")
 
 
-Pyro4.config.HOST = get_ip()
+Pyro4.config.HOST = THIS_SERVER_IP
 Pyro4.Daemon.serveSimple ( {
     scoreboard: SCOREBOARDNAME
     } , ns=True
