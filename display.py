@@ -3,10 +3,11 @@ import sys
 try:
     import RPi.GPIO as GPIO
 
-    GPIO.setmode(GPIO.BCM)
 except ImportError as e:
     print("This code runs directly on a Raspberry Pi only.")
     sys.exit(1)
+
+GPIO.setmode(GPIO.BCM)
 
 import Pyro4
 import pygame
