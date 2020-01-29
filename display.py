@@ -152,3 +152,36 @@ Pyro4.Daemon.serveSimple ( {
     scoreboard: SCOREBOARDNAME
     } , ns=True
     )
+
+""" from pygame.org docs:
+ pygame.display.set_mode()
+    Initialize a window or screen for display
+    set_mode(size=(0, 0), flags=0, depth=0, display=0) -> Surface
+    This function will create a display Surface. The arguments passed in are requests for a display type. The actual created display will be the best possible match supported by the system.
+    The size argument is a pair of numbers representing the width and height. The flags argument is a collection of additional options. The depth argument represents the number of bits to use for color.
+    The Surface that gets returned can be drawn to like a regular Surface but changes will eventually be seen on the monitor.
+    If no size is passed or is set to (0, 0) and pygame uses SDL version 1.2.10 or above, the created Surface will have the same size as the current screen resolution. If only the width or height are set to 0, the Surface will have the same width or height as the screen resolution. Using a SDL version prior to 1.2.10 will raise an exception.
+    It is usually best to not pass the depth argument. It will default to the best and fastest color depth for the system. If your game requires a specific color format you can control the depth with this argument. Pygame will emulate an unavailable color depth which can be slow.
+    When requesting fullscreen display modes, sometimes an exact match for the requested size cannot be made. In these situations pygame will select the closest compatible match. The returned surface will still always match the requested size.
+    On high resolution displays(4k, 1080p) and tiny graphics games (640x480) show up very small so that they are unplayable. SCALED scales up the window for you. The game thinks it's a 640x480 window, but really it can be bigger. Mouse events are scaled for you, so your game doesn't need to do it.
+    The flags argument controls which type of display you want. There are several to choose from, and you can even combine multiple types using the bitwise or operator, (the pipe "|" character). If you pass 0 or no flags argument it will default to a software driven window. Here are the display flags you will want to choose from:
+
+    pygame.FULLSCREEN    create a fullscreen display
+    pygame.DOUBLEBUF     recommended for HWSURFACE or OPENGL
+    pygame.HWSURFACE     hardware accelerated, only in FULLSCREEN
+    pygame.OPENGL        create an OpenGL-renderable display
+    pygame.RESIZABLE     display window should be sizeable
+    pygame.NOFRAME       display window will have no border or controls
+    pygame.SCALED        resolution depends on desktop size and scale graphics
+
+    New in pygame 2.0.0: SCALED
+
+    For example:
+    # Open a window on the screen
+    screen_width=700
+    screen_height=400
+    screen=pygame.display.set_mode([screen_width,screen_height])
+
+    The display index 0 means the default display is used.
+    The display argument is new with pygame 1.9.5.
+"""
